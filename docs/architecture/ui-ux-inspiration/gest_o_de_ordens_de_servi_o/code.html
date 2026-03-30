@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gestão de Ordens de Serviço | Ícaro Enterprise</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-surface": "#2d3133",
+              "on-primary-fixed": "#001a42",
+              "outline-variant": "#c2c6d6",
+              "tertiary-fixed-dim": "#ffb786",
+              "secondary-fixed": "#dae2fd",
+              "primary-container": "#2170e4",
+              "outline": "#727785",
+              "on-secondary": "#ffffff",
+              "on-tertiary-fixed": "#311400",
+              "on-secondary-fixed-variant": "#3f465c",
+              "surface-tint": "#005ac2",
+              "surface-container-lowest": "#ffffff",
+              "on-surface": "#191c1e",
+              "inverse-primary": "#adc6ff",
+              "on-error": "#ffffff",
+              "on-tertiary-container": "#fffbff",
+              "error": "#ba1a1a",
+              "background": "#f7f9fb",
+              "surface-variant": "#e0e3e5",
+              "on-secondary-container": "#5c647a",
+              "tertiary-container": "#b75b00",
+              "primary-fixed": "#d8e2ff",
+              "on-tertiary-fixed-variant": "#723600",
+              "surface-container-high": "#e6e8ea",
+              "surface": "#f7f9fb",
+              "on-tertiary": "#ffffff",
+              "surface-container-highest": "#e0e3e5",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#eff1f3",
+              "surface-dim": "#d8dadc",
+              "secondary-fixed-dim": "#bec6e0",
+              "on-error-container": "#93000a",
+              "primary": "#0058be",
+              "on-surface-variant": "#424754",
+              "error-container": "#ffdad6",
+              "secondary-container": "#dae2fd",
+              "tertiary-fixed": "#ffdcc6",
+              "primary-fixed-dim": "#adc6ff",
+              "surface-bright": "#f7f9fb",
+              "surface-container": "#eceef0",
+              "surface-container-low": "#f2f4f6",
+              "on-background": "#191c1e",
+              "secondary": "#565e74",
+              "on-secondary-fixed": "#131b2e",
+              "on-primary-container": "#fefcff",
+              "tertiary": "#924700",
+              "on-primary-fixed-variant": "#004395"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1, h2, h3 {
+        font-family: 'Manrope', sans-serif;
+      }
+      .glass-effect {
+        background: rgba(247, 249, 251, 0.8);
+        backdrop-filter: blur(12px);
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="w-full top-0 z-50 bg-[#f7f9fb] dark:bg-slate-900 shadow-none">
+<nav class="flex items-center justify-between px-8 py-4 max-w-[1920px] mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-xl font-black text-[#191c1e] dark:text-white tracking-tighter">Ícaro Enterprise</span>
+<div class="hidden md:flex gap-6">
+<a class="font-manrope font-semibold text-sm tracking-tight text-[#5c647a] dark:text-slate-400 hover:text-[#191c1e] hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors duration-200 ease-in-out" href="#">Dashboards</a>
+<a class="font-manrope font-semibold text-sm tracking-tight text-[#0058be] dark:text-blue-400 border-b-2 border-[#0058be] pb-1 duration-200 ease-in-out" href="#">Operações</a>
+<a class="font-manrope font-semibold text-sm tracking-tight text-[#5c647a] dark:text-slate-400 hover:text-[#191c1e] hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors duration-200 ease-in-out" href="#">Marketplace</a>
+<a class="font-manrope font-semibold text-sm tracking-tight text-[#5c647a] dark:text-slate-400 hover:text-[#191c1e] hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors duration-200 ease-in-out" href="#">Financeiro</a>
+<a class="font-manrope font-semibold text-sm tracking-tight text-[#5c647a] dark:text-slate-400 hover:text-[#191c1e] hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors duration-200 ease-in-out" href="#">Configurações</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors">
+<span class="material-symbols-outlined text-[#5c647a]">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors">
+<span class="material-symbols-outlined text-[#5c647a]">help_outline</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-surface-container-highest overflow-hidden ml-2">
+<img alt="Avatar do usuário corporativo" class="w-full h-full object-cover" data-alt="Professional headshot of a corporate executive in a dark suit with a clean office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY9aJFKY6gnsHMiWKuk2xkZkfoHy02chZ6Z2swtoQqiN4lyTdo_D_mNmLcx2xxcAOkM0mbZ_p1f9gviUMBst3kI_8BNca5GQ4HOgPjQBcLZ5wpVlyDmGy345wr7LPANgtS3gL3o1KczK_niNxYMVc4oZeGHFa_8CWMMnsgl4AsrRMH_seHSaG-RJ8tUy3Rr5xyQnhso-f2wgdfcqMPLEJ5ReMg0GXD3mlNMGOKIdx_dsNbBcc5TLTxjhdzgqe9_uHn8BvWAMJc_vmz"/>
+</div>
+</div>
+</nav>
+</header>
+<main class="flex-grow w-full max-w-[1920px] mx-auto px-8 py-10">
+<!-- Header Section -->
+<section class="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
+<div>
+<nav class="flex items-center gap-2 text-on-secondary-container text-xs mb-3">
+<span>Operações</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-on-surface font-medium">Ordens de Serviço</span>
+</nav>
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface mb-2">Ordens de Serviço</h1>
+<p class="text-on-secondary-container max-w-2xl">Gerencie e monitore suas operações aéreas. De mapeamentos térmicos a inspeções estruturais detalhadas.</p>
+</div>
+<button class="flex items-center gap-2 px-6 py-3 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-lg font-semibold hover:saturate-150 transition-all shadow-sm">
+<span class="material-symbols-outlined">add</span>
+<span>Nova Ordem</span>
+</button>
+</section>
+<!-- Filters & Stats Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+<!-- Filter Controls -->
+<div class="md:col-span-3 bg-surface-container-lowest p-6 rounded-xl shadow-none">
+<div class="flex flex-wrap items-center gap-4">
+<div class="relative flex-grow max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-secondary-container">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Buscar por título ou ID..." type="text"/>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-low px-3 py-2 rounded-lg cursor-pointer hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+<span class="text-sm font-medium">Status</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-low px-3 py-2 rounded-lg cursor-pointer hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span class="text-sm font-medium">Data</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Quick Stats -->
+<div class="bg-surface-container-low p-6 rounded-xl flex items-center justify-between">
+<div>
+<span class="text-xs font-bold uppercase tracking-widest text-on-secondary-container mb-1 block">Ativas</span>
+<span class="text-3xl font-black text-primary">12</span>
+</div>
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-weight="fill">rocket_launch</span>
+</div>
+</div>
+</div>
+<!-- Orders Management Board -->
+<div class="space-y-4">
+<!-- Header Labels (Ghost borders ban - uses spacing and font) -->
+<div class="grid grid-cols-12 px-6 text-xs font-bold uppercase tracking-widest text-on-secondary-container opacity-60 mb-2">
+<div class="col-span-4">Detalhes da Ordem</div>
+<div class="col-span-2">Tipo de Serviço</div>
+<div class="col-span-2 text-center">Status</div>
+<div class="col-span-2 text-right">Orçamento</div>
+<div class="col-span-2 text-right">Prazo Final</div>
+</div>
+<!-- List Item 1 -->
+<div class="grid grid-cols-12 items-center px-6 py-5 bg-surface-container-lowest hover:bg-surface-container-low rounded-xl transition-all cursor-pointer group">
+<div class="col-span-4 flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-fixed">grid_view</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Mapeamento Agrícola - Fazenda Boa Vista</h4>
+<span class="text-xs text-on-secondary-container">#OS-2024-0892</span>
+</div>
+</div>
+<div class="col-span-2">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-xs font-medium">Mapeamento</span>
+</div>
+<div class="col-span-2 flex justify-center">
+<div class="flex items-center gap-2 text-[#0058be] bg-blue-50 px-3 py-1 rounded-full border border-blue-100/50">
+<span class="w-1.5 h-1.5 rounded-full bg-[#0058be] animate-pulse"></span>
+<span class="text-xs font-bold uppercase">Active</span>
+</div>
+</div>
+<div class="col-span-2 text-right font-semibold text-on-surface">R$ 12.450,00</div>
+<div class="col-span-2 text-right text-sm text-on-secondary-container">15 Out, 2024</div>
+</div>
+<!-- List Item 2 -->
+<div class="grid grid-cols-12 items-center px-6 py-5 bg-surface-container-lowest hover:bg-surface-container-low rounded-xl transition-all cursor-pointer group">
+<div class="col-span-4 flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface">cell_tower</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Inspeção de Linha de Transmissão</h4>
+<span class="text-xs text-on-secondary-container">#OS-2024-0901</span>
+</div>
+</div>
+<div class="col-span-2">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-xs font-medium">Inspeção</span>
+</div>
+<div class="col-span-2 flex justify-center">
+<div class="flex items-center gap-2 text-on-secondary-container bg-surface-container-low px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-xs">hourglass_empty</span>
+<span class="text-xs font-bold uppercase">Bidding</span>
+</div>
+</div>
+<div class="col-span-2 text-right font-semibold text-on-surface">R$ 8.900,00</div>
+<div class="col-span-2 text-right text-sm text-on-secondary-container">22 Out, 2024</div>
+</div>
+<!-- List Item 3 -->
+<div class="grid grid-cols-12 items-center px-6 py-5 bg-surface-container-lowest hover:bg-surface-container-low rounded-xl transition-all cursor-pointer group">
+<div class="col-span-4 flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface">thermostat</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Análise Térmica Painéis Solares</h4>
+<span class="text-xs text-on-secondary-container">#OS-2024-0715</span>
+</div>
+</div>
+<div class="col-span-2">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-xs font-medium">Inspeção</span>
+</div>
+<div class="col-span-2 flex justify-center">
+<div class="flex items-center gap-2 text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100/50">
+<span class="material-symbols-outlined text-xs">check_circle</span>
+<span class="text-xs font-bold uppercase">Delivered</span>
+</div>
+</div>
+<div class="col-span-2 text-right font-semibold text-on-surface">R$ 4.200,00</div>
+<div class="col-span-2 text-right text-sm text-on-secondary-container">05 Set, 2024</div>
+</div>
+<!-- List Item 4 -->
+<div class="grid grid-cols-12 items-center px-6 py-5 bg-surface-container-lowest hover:bg-surface-container-low rounded-xl transition-all cursor-pointer group">
+<div class="col-span-4 flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface">edit_document</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Monitoramento Ambiental - Costa Sul</h4>
+<span class="text-xs text-on-secondary-container">#OS-2024-0955</span>
+</div>
+</div>
+<div class="col-span-2">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-xs font-medium">Ambiental</span>
+</div>
+<div class="col-span-2 flex justify-center">
+<div class="flex items-center gap-2 text-on-tertiary-fixed-variant bg-tertiary-fixed px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-xs">draft</span>
+<span class="text-xs font-bold uppercase">Draft</span>
+</div>
+</div>
+<div class="col-span-2 text-right font-semibold text-on-surface">---</div>
+<div class="col-span-2 text-right text-sm text-on-secondary-container">---</div>
+</div>
+<!-- List Item 5 -->
+<div class="grid grid-cols-12 items-center px-6 py-5 bg-surface-container-lowest hover:bg-surface-container-low rounded-xl transition-all cursor-pointer group">
+<div class="col-span-4 flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">person_search</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Topografia Loteamento Horizonte</h4>
+<span class="text-xs text-on-secondary-container">#OS-2024-0912</span>
+</div>
+</div>
+<div class="col-span-2">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-xs font-medium">Mapeamento</span>
+</div>
+<div class="col-span-2 flex justify-center">
+<div class="flex items-center gap-2 text-primary bg-primary-fixed px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-xs">person</span>
+<span class="text-xs font-bold uppercase">Assigned</span>
+</div>
+</div>
+<div class="col-span-2 text-right font-semibold text-on-surface">R$ 15.200,00</div>
+<div class="col-span-2 text-right text-sm text-on-secondary-container">30 Out, 2024</div>
+</div>
+</div>
+<!-- Empty State / Load More (Asymmetric spacing) -->
+<div class="mt-16 flex justify-center">
+<button class="px-8 py-3 text-primary font-bold text-sm hover:underline flex items-center gap-2">
+                Carregar mais ordens
+                <span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-[#f2f4f6] dark:border-slate-800 bg-[#f7f9fb] dark:bg-slate-950 mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-10 py-6 w-full max-w-[1920px] mx-auto">
+<div class="font-inter text-xs text-[#5c647a] dark:text-slate-500 mb-4 md:mb-0">
+                © 2024 Ícaro Inteligência Aérea. Todos os direitos reservados.
+            </div>
+<div class="flex gap-8">
+<a class="font-inter text-xs text-[#5c647a] hover:text-[#0058be] transition-all cursor-pointer" href="#">Privacidade</a>
+<a class="font-inter text-xs text-[#5c647a] hover:text-[#0058be] transition-all cursor-pointer" href="#">Termos de Uso</a>
+<a class="font-inter text-xs text-[#5c647a] hover:text-[#0058be] transition-all cursor-pointer" href="#">Suporte Local</a>
+<a class="font-inter text-xs text-[#5c647a] hover:text-[#0058be] transition-all cursor-pointer" href="#">Contato</a>
+</div>
+</div>
+</footer>
+<!-- FAB (Suppressed on details, shown here as it is primary dashboard action) -->
+<div class="fixed bottom-8 right-8 md:hidden">
+<button class="w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</body></html>

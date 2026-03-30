@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marketplace de Operadores - Ícaro Enterprise</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-surface": "#2d3133",
+              "on-primary-fixed": "#001a42",
+              "outline-variant": "#c2c6d6",
+              "tertiary-fixed-dim": "#ffb786",
+              "secondary-fixed": "#dae2fd",
+              "primary-container": "#2170e4",
+              "outline": "#727785",
+              "on-secondary": "#ffffff",
+              "on-tertiary-fixed": "#311400",
+              "on-secondary-fixed-variant": "#3f465c",
+              "surface-tint": "#005ac2",
+              "surface-container-lowest": "#ffffff",
+              "on-surface": "#191c1e",
+              "inverse-primary": "#adc6ff",
+              "on-error": "#ffffff",
+              "on-tertiary-container": "#fffbff",
+              "error": "#ba1a1a",
+              "background": "#f7f9fb",
+              "surface-variant": "#e0e3e5",
+              "on-secondary-container": "#5c647a",
+              "tertiary-container": "#b75b00",
+              "primary-fixed": "#d8e2ff",
+              "on-tertiary-fixed-variant": "#723600",
+              "surface-container-high": "#e6e8ea",
+              "surface": "#f7f9fb",
+              "on-tertiary": "#ffffff",
+              "surface-container-highest": "#e0e3e5",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#eff1f3",
+              "surface-dim": "#d8dadc",
+              "secondary-fixed-dim": "#bec6e0",
+              "on-error-container": "#93000a",
+              "primary": "#0058be",
+              "on-surface-variant": "#424754",
+              "error-container": "#ffdad6",
+              "secondary-container": "#dae2fd",
+              "tertiary-fixed": "#ffdcc6",
+              "primary-fixed-dim": "#adc6ff",
+              "surface-bright": "#f7f9fb",
+              "surface-container": "#eceef0",
+              "surface-container-low": "#f2f4f6",
+              "on-background": "#191c1e",
+              "secondary": "#565e74",
+              "on-secondary-fixed": "#131b2e",
+              "on-primary-container": "#fefcff",
+              "tertiary": "#924700",
+              "on-primary-fixed-variant": "#004395"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(247, 249, 251, 0.8);
+        backdrop-filter: blur(12px);
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body min-h-screen flex flex-col">
+<!-- Shared TopNavBar -->
+<header class="w-full top-0 z-50 bg-[#f7f9fb] dark:bg-slate-900">
+<div class="flex items-center justify-between px-8 py-4 max-w-[1920px] mx-auto">
+<div class="flex items-center gap-12">
+<span class="text-xl font-black text-[#191c1e] dark:text-white tracking-tighter">Ícaro Enterprise</span>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-manrope font-semibold text-sm tracking-tight text-[#5c647a] dark:text-slate-400 hover:text-[#191c1e] hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors duration-200 ease-in-out" href="#">Dashboards</a>
+<a class="font-manrope font-semibold text-sm tracking-tight text-[#5c647a] dark:text-slate-400 hover:text-[#191c1e] hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors duration-200 ease-in-out" href="#">Operações</a>
+<a class="font-manrope font-semibold text-sm tracking-tight text-[#0058be] dark:text-blue-400 border-b-2 border-[#0058be] pb-1 duration-200 ease-in-out" href="#">Marketplace</a>
+<a class="font-manrope font-semibold text-sm tracking-tight text-[#5c647a] dark:text-slate-400 hover:text-[#191c1e] hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors duration-200 ease-in-out" href="#">Financeiro</a>
+<a class="font-manrope font-semibold text-sm tracking-tight text-[#5c647a] dark:text-slate-400 hover:text-[#191c1e] hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors duration-200 ease-in-out" href="#">Configurações</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-[#5c647a] hover:bg-blue-50/50 rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-[#5c647a] hover:bg-blue-50/50 rounded-full transition-colors">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden ml-2 bg-surface-container-highest">
+<img alt="Avatar do usuário corporativo" data-alt="professional corporate headshot of a business executive in a modern office setting with soft background lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6nKJluuxk4s4KwQLM5EBfJy-6WqQVINANj9Y4Su79kgCVpJhpCbZjbHjLspnPqzImJOFa3Psgdlgl7wySWtz_SbjLLB-no5AXVGOLBD61WlkdVL4mg6Ema6Ru_-OyBmXeTOUmAxogML83B3jJTxFmgq07UPugFozEMM4fFepWWXt8RpSA718jEDE_44XULklPH-nxvSkOEEKrDURLfu0jJ5cdU4gg2cgUAwHRz8vfo1jx2TotBoy93tHAol_f-sHefPD2R5Rtj2P8"/>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow px-8 py-10 max-w-[1920px] mx-auto w-full">
+<!-- Page Header Section -->
+<section class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="max-w-2xl">
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-secondary-container text-on-secondary-fixed px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase">Ordem #DRN-4092</span>
+<span class="text-on-secondary-container text-xs">• 12 Propostas Recebidas</span>
+</div>
+<h1 class="font-headline text-4xl font-extrabold text-on-surface tracking-tight leading-tight">Mapeamento Agrícola: Fazenda Sol Nascente</h1>
+<p class="mt-4 text-on-secondary-container font-body leading-relaxed">Analise e compare as propostas técnicas dos operadores certificados para o levantamento multiespectral de 500 hectares em Mato Grosso.</p>
+</div>
+<div class="flex gap-4">
+<button class="bg-surface-container-lowest text-primary px-6 py-3 rounded-lg font-semibold flex items-center gap-2 transition-all hover:bg-surface-container hover:shadow-sm">
+<span class="material-symbols-outlined">description</span>
+                    Visualizar Edital
+                </button>
+</div>
+</section>
+<!-- Comparison Bento Grid Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-8">
+<!-- Left Column: Highlights & Filter -->
+<div class="xl:col-span-3 space-y-8">
+<div class="bg-surface-container-low p-6 rounded-xl space-y-6">
+<h3 class="font-headline text-lg font-bold text-on-surface">Resumo da Demanda</h3>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">location_on</span>
+<div>
+<p class="text-xs text-on-secondary-container font-medium">Localização</p>
+<p class="text-sm font-semibold">Sorriso, MT</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">calendar_today</span>
+<div>
+<p class="text-xs text-on-secondary-container font-medium">Janela de Execução</p>
+<p class="text-sm font-semibold">15 Set - 22 Set</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">payments</span>
+<div>
+<p class="text-xs text-on-secondary-container font-medium">Orçamento Estimado</p>
+<p class="text-sm font-semibold">R$ 12.000,00 - R$ 18.000,00</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm space-y-4">
+<h3 class="font-headline text-lg font-bold text-on-surface">Filtros Avançados</h3>
+<div class="space-y-4">
+<label class="block">
+<span class="text-xs font-bold text-on-secondary-container uppercase tracking-wider mb-2 block">Ordenar por</span>
+<select class="w-full bg-surface-container-low border-none rounded-lg text-sm focus:ring-primary">
+<option>Melhor Avaliação</option>
+<option>Menor Preço</option>
+<option>Prazo mais Curto</option>
+</select>
+</label>
+<div class="pt-2">
+<span class="text-xs font-bold text-on-secondary-container uppercase tracking-wider mb-3 block">Certificações</span>
+<div class="space-y-2">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="rounded text-primary focus:ring-primary bg-surface-container-high border-none" type="checkbox"/>
+<span class="text-sm text-on-surface group-hover:text-primary transition-colors">ANAC - Classe 3</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="rounded text-primary focus:ring-primary bg-surface-container-high border-none" type="checkbox"/>
+<span class="text-sm text-on-surface group-hover:text-primary transition-colors">MAPA (Pulverização)</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded text-primary focus:ring-primary bg-surface-container-high border-none" type="checkbox"/>
+<span class="text-sm text-on-surface group-hover:text-primary transition-colors">Seguro RETA Ativo</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Proposal Cards -->
+<div class="xl:col-span-9 space-y-6">
+<!-- Operator Proposal Card 1: Recommended -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col md:flex-row transition-all hover:translate-y-[-4px] hover:shadow-md border-l-4 border-primary">
+<div class="p-8 md:w-2/3 space-y-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg bg-surface-container-high overflow-hidden">
+<img alt="Operador SkyView Solutions" data-alt="professional drone operator pilot with sunglasses and safety vest holding remote controller outdoors in high-tech setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4oMBpO6OwpCM7iI53bEJGEjtGdagF5ixGyuFH79ZxlUAJA5HU65vZJXcJf_9r0HkZfwUS4eI0aBGfet7BX-8MsHtcCcOFs0V-k3UySuKG7-NevhV4j-YmmV6uOaEc6sXlU1BIalAwYsl1rph-9p6oYE8EKS9Ot1oyPMt1Rb-oc3zpSJhE-kmA3EHhg3NDHAx7cTSmImmSR5LDc90-gqI9AZBnN8F9OqoJM01unVo2SnDRtNNSE_yT28_Zxa4Wqal8gvdQjC1i0y77"/>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline text-xl font-bold">SkyView Solutions</h2>
+<span class="material-symbols-outlined text-primary text-sm" data-weight="fill">verified</span>
+</div>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-sm">4.9</span>
+<span class="text-on-secondary-container text-xs ml-1">(128 projetos concluídos)</span>
+</div>
+</div>
+</div>
+<div class="hidden md:block">
+<span class="bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full">RECOMENDADO</span>
+</div>
+</div>
+<div>
+<h4 class="text-xs font-bold text-on-secondary-container uppercase tracking-wider mb-2">Proposta Técnica</h4>
+<p class="text-on-secondary-container text-sm leading-relaxed">
+                                Utilizaremos o DJI Mavic 3 Multispectral para alta precisão (GSD &lt; 2cm). Entrega inclui ortofotomosaico, mapas de biomassa (NDVI/LCI) e relatório técnico assinado por engenheiro agrônomo. Possuímos base local em Sorriso, garantindo pronto atendimento.
+                            </p>
+</div>
+<div class="flex flex-wrap gap-3">
+<span class="bg-surface-container-low text-on-secondary-container text-xs px-3 py-1.5 rounded-full flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">precision_manufacturing</span> DJI Mavic 3M
+                            </span>
+<span class="bg-surface-container-low text-on-secondary-container text-xs px-3 py-1.5 rounded-full flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">workspace_premium</span> Engenheiro Agrônomo
+                            </span>
+<span class="bg-surface-container-low text-on-secondary-container text-xs px-3 py-1.5 rounded-full flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">speed</span> Pronto em 2 dias
+                            </span>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 md:w-1/3 flex flex-col justify-between border-l border-outline-variant/15">
+<div class="text-right">
+<p class="text-xs text-on-secondary-container font-medium mb-1">Valor Total</p>
+<p class="text-3xl font-headline font-black text-primary">R$ 14.500,00</p>
+<p class="text-xs text-on-secondary-container mt-1">Equivalente a R$ 29,00/ha</p>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between text-sm">
+<span class="text-on-secondary-container">Prazo de entrega:</span>
+<span class="font-bold">4 dias úteis</span>
+</div>
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-3 rounded-lg font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform active:scale-95">
+                                Aceitar Proposta
+                            </button>
+<button class="w-full text-primary text-sm font-semibold hover:underline">
+                                Conversar no Chat
+                            </button>
+</div>
+</div>
+</article>
+<!-- Operator Proposal Card 2 -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col md:flex-row transition-all hover:shadow-md">
+<div class="p-8 md:w-2/3 space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg bg-surface-container-high overflow-hidden">
+<img alt="Operador AgroDrone Brasil" data-alt="modern startup office team working with drone maps on large monitors, warm atmospheric lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeKlpia0CgXsU5lyNIr5mi9be6xnaUpBpykzCIgAI8BGQzqONvTA4liQcew9VlBnaTjM1aRjimYLZd75WNEjX8fwbJK_EmqG5luiz167eakSmEzjLhowneauQsaBZSIN2uRsEsAlQvRN5KZ-lPVGZoRpnoaX_k1m836hXDfw-xaewWXnMIFVTxJiH9AsjeB9tBqkPO1MqH2mEf2A7Raqa95HT3K7Y3S2P-JfQzAVodWHZ6nUVnZKbxXU_Ae2VFHobViG11OamuFQ12"/>
+</div>
+<div>
+<h2 class="font-headline text-xl font-bold">AgroDrone Brasil</h2>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-sm">4.7</span>
+<span class="text-on-secondary-container text-xs ml-1">(42 projetos concluídos)</span>
+</div>
+</div>
+</div>
+<div>
+<h4 class="text-xs font-bold text-on-secondary-container uppercase tracking-wider mb-2">Proposta Técnica</h4>
+<p class="text-on-secondary-container text-sm leading-relaxed">
+                                Foco em custo-benefício. Levantamento com Parrot Bluegrass. Entrega de mapas básicos via nuvem proprietária com acesso mobile. Garantimos a cobertura total da área em 3 voos simultâneos para agilidade.
+                            </p>
+</div>
+<div class="flex flex-wrap gap-3">
+<span class="bg-surface-container-low text-on-secondary-container text-xs px-3 py-1.5 rounded-full flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">flight</span> Parrot Bluegrass
+                            </span>
+<span class="bg-surface-container-low text-on-secondary-container text-xs px-3 py-1.5 rounded-full flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">cloud_done</span> Relatório Digital
+                            </span>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 md:w-1/3 flex flex-col justify-between border-l border-outline-variant/15">
+<div class="text-right">
+<p class="text-xs text-on-secondary-container font-medium mb-1">Valor Total</p>
+<p class="text-3xl font-headline font-black text-on-surface">R$ 11.200,00</p>
+<p class="text-xs text-on-secondary-container mt-1">Equivalente a R$ 22,40/ha</p>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between text-sm">
+<span class="text-on-secondary-container">Prazo de entrega:</span>
+<span class="font-bold">6 dias úteis</span>
+</div>
+<button class="w-full bg-on-surface text-surface py-3 rounded-lg font-bold hover:bg-on-surface/90 transition-colors">
+                                Aceitar Proposta
+                            </button>
+<button class="w-full text-on-surface-variant text-sm font-semibold hover:underline">
+                                Conversar no Chat
+                            </button>
+</div>
+</div>
+</article>
+<!-- Operator Proposal Card 3 -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col md:flex-row transition-all hover:shadow-md opacity-90">
+<div class="p-8 md:w-2/3 space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg bg-surface-container-high overflow-hidden">
+<img alt="Operadora Precision Aerial" data-alt="confident professional female pilot standing next to a large industrial agricultural drone in a field at sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfqh7QEXItkYdJbObVosWNIKfuK6sv-v0g0zTXYhi8KIEg2vxenaE-IWs_jKbaDtGkxiY7o4yLE5vcf0eXQH3nOhNYS-xgQHJ45d39joeoEKprH4afmgR2VMN8B3u_ENRx6wPKY91yPWq7wsGHNrX1Wt_tO0NlSO9ShnDI3tZKNswyut_ORvZnjXBnDida1b9Q1CZcfQTGGMH34eL-4hCEFCB6D980aZtwZVov5WzPkVETi41WZtNqhIRxu522E9k_MU1Aez2EVRiu"/>
+</div>
+<div>
+<h2 class="font-headline text-xl font-bold">Precision Aerial</h2>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-sm">5.0</span>
+<span class="text-on-secondary-container text-xs ml-1">(15 projetos concluídos)</span>
+</div>
+</div>
+</div>
+<div>
+<h4 class="text-xs font-bold text-on-secondary-container uppercase tracking-wider mb-2">Proposta Técnica</h4>
+<p class="text-on-secondary-container text-sm leading-relaxed">
+                                Especialistas em análise foliar avançada. Utilizamos sensores de última geração e oferecemos integração direta com sistemas John Deere (Operations Center). Inclui consultoria pós-entrega dos mapas.
+                            </p>
+</div>
+<div class="flex flex-wrap gap-3">
+<span class="bg-surface-container-low text-on-secondary-container text-xs px-3 py-1.5 rounded-full flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">analytics</span> Integração JD
+                            </span>
+<span class="bg-surface-container-low text-on-secondary-container text-xs px-3 py-1.5 rounded-full flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">verified_user</span> Seguro RETA Premium
+                            </span>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 md:w-1/3 flex flex-col justify-between border-l border-outline-variant/15">
+<div class="text-right">
+<p class="text-xs text-on-secondary-container font-medium mb-1">Valor Total</p>
+<p class="text-3xl font-headline font-black text-on-surface">R$ 17.800,00</p>
+<p class="text-xs text-on-secondary-container mt-1">Equivalente a R$ 35,60/ha</p>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between text-sm">
+<span class="text-on-secondary-container">Prazo de entrega:</span>
+<span class="font-bold">3 dias úteis</span>
+</div>
+<button class="w-full bg-on-surface text-surface py-3 rounded-lg font-bold hover:bg-on-surface/90 transition-colors">
+                                Aceitar Proposta
+                            </button>
+<button class="w-full text-on-surface-variant text-sm font-semibold hover:underline">
+                                Conversar no Chat
+                            </button>
+</div>
+</div>
+</article>
+</div>
+</div>
+</main>
+<!-- Shared Footer -->
+<footer class="w-full border-t border-[#f2f4f6] dark:border-slate-800 bg-[#f7f9fb] dark:bg-slate-950">
+<div class="flex flex-col md:flex-row justify-between items-center px-10 py-6 w-full mt-auto max-w-[1920px] mx-auto">
+<span class="font-inter text-xs text-[#5c647a] dark:text-slate-500">© 2024 Ícaro Inteligência Aérea. Todos os direitos reservados.</span>
+<div class="flex items-center gap-6 mt-4 md:mt-0">
+<a class="font-inter text-xs text-[#5c647a] hover:underline hover:text-[#0058be] transition-all cursor-pointer" href="#">Privacidade</a>
+<a class="font-inter text-xs text-[#5c647a] hover:underline hover:text-[#0058be] transition-all cursor-pointer" href="#">Termos de Uso</a>
+<a class="font-inter text-xs text-[#5c647a] hover:underline hover:text-[#0058be] transition-all cursor-pointer" href="#">Suporte Local</a>
+<a class="font-inter text-xs text-[#5c647a] hover:underline hover:text-[#0058be] transition-all cursor-pointer" href="#">Contato</a>
+</div>
+</div>
+</footer>
+</body></html>

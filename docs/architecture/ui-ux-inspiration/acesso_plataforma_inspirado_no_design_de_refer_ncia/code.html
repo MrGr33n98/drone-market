@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-tint": "#005ac2",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container": "#eceef0",
+                        "on-tertiary-fixed-variant": "#723600",
+                        "secondary-container": "#dae2fd",
+                        "background": "#0a0c10",
+                        "on-surface": "#191c1e",
+                        "on-secondary-fixed": "#131b2e",
+                        "secondary-fixed": "#dae2fd",
+                        "outline": "#727785",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb786",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "tertiary": "#924700",
+                        "on-primary-fixed-variant": "#004395",
+                        "primary-container": "#2170e4",
+                        "outline-variant": "#c2c6d6",
+                        "surface-bright": "#f7f9fb",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "on-primary-fixed": "#001a42",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "primary-fixed": "#d8e2ff",
+                        "secondary": "#565e74",
+                        "on-tertiary-container": "#fffbff",
+                        "on-primary-container": "#fefcff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdcc6",
+                        "surface-variant": "#e0e3e5",
+                        "tertiary-container": "#b75b00",
+                        "primary": "#0058be",
+                        "on-surface-variant": "#424754",
+                        "inverse-primary": "#adc6ff",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-container": "#5c647a",
+                        "on-background": "#f1f1f1",
+                        "surface": "#f7f9fb",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#311400",
+                        "inverse-surface": "#2d3133",
+                        "inverse-on-surface": "#eff1f3",
+                        "primary-fixed-dim": "#adc6ff"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-font { font-family: 'Manrope', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .tech-grid {
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #aab6c8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .primary-gradient-btn {
+            background: linear-gradient(135deg, #0058be 0%, #2170e4 100%);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .primary-gradient-btn:hover {
+            box-shadow: 0 0 20px rgba(33, 112, 228, 0.4);
+            transform: translateY(-1px);
+        }
+        .image-overlay {
+            background: linear-gradient(to right, rgba(10, 12, 16, 0.9) 0%, rgba(10, 12, 16, 0.4) 100%);
+        }
+        input:focus {
+            box-shadow: 0 0 0 2px rgba(0, 88, 190, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-[#0a0c10] min-h-screen text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed overflow-hidden flex flex-col">
+<!-- Background Technical Elements -->
+<div class="fixed inset-0 -z-10 tech-grid"></div>
+<div class="fixed top-0 right-0 w-1/2 h-full -z-20 opacity-40">
+<img alt="Drone technology background" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoFiIW-PPRBxXoBWHw4ZaTUzYjgPFLkG9entQhHHlK34YgnQv3j_bpb8d2e1Jv01S0LyNXf3hbO5hciQeIVA4Fh83CA4N0sIg6CjtfErBfk0regpQQYLrRr2KReDynr_UgFe3kHv-R_iTihkmanh38fhErTKgYh4CvczQ8Ba7EuEHARZbAu7aPNEQuvHKuDLwgxrJE0SaIBvVnU0mkCzTPHKUIkU_P_BDz9E3YZK9LBh4j6zrO97jrczP9ZndXr4qk7aFw67zJmEle"/>
+<div class="absolute inset-0 bg-gradient-to-l from-transparent via-[#0a0c10]/80 to-[#0a0c10]"></div>
+</div>
+<!-- Header / Nav -->
+<nav class="w-full px-8 py-6 flex justify-between items-center relative z-20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="flight_takeoff">flight_takeoff</span>
+<span class="brand-font text-xl font-bold text-white tracking-tight">AeroMetric</span>
+</div>
+<div class="hidden md:flex gap-8 text-sm font-medium text-outline-variant/60 uppercase tracking-widest">
+<a class="hover:text-white transition-colors" href="#">Tecnologia</a>
+<a class="hover:text-white transition-colors" href="#">Missões</a>
+<a class="hover:text-white transition-colors" href="#">Soluções</a>
+</div>
+</nav>
+<main class="flex-grow flex items-center px-8 md:px-24 relative z-10">
+<div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+<!-- Left Side: Value Proposition -->
+<div class="lg:col-span-7 space-y-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-wider">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                Plataforma Enterprise v2.4
+            </div>
+<h1 class="font-headline text-5xl md:text-7xl font-extrabold text-white leading-[1.1] tracking-tight">
+                A inteligência aérea <br/>
+<span class="gradient-text">em tempo real.</span>
+</h1>
+<p class="text-outline-variant text-lg md:text-xl max-w-xl leading-relaxed">
+                Acesse o ecossistema completo de gestão de frotas, telemetria avançada e análise de dados para missões críticas.
+            </p>
+<!-- Tech-forward Features (Inspired by reference image blocks) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-12">
+<div class="glass-card p-6 rounded-xl flex items-start gap-4">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg" data-icon="monitoring">monitoring</span>
+<div>
+<h3 class="text-white font-semibold text-sm mb-1">Telemetria Real-time</h3>
+<p class="text-xs text-outline-variant leading-relaxed">Dados de voo processados com latência zero.</p>
+</div>
+</div>
+<div class="glass-card p-6 rounded-xl flex items-start gap-4">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg" data-icon="hub">hub</span>
+<div>
+<h3 class="text-white font-semibold text-sm mb-1">API Integrada</h3>
+<p class="text-xs text-outline-variant leading-relaxed">Conectividade total com seu ERP e BI.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side: Login Form -->
+<div class="lg:col-span-5 flex justify-center lg:justify-end">
+<div class="w-full max-w-md bg-white rounded-2xl p-8 md:p-10 shadow-2xl">
+<header class="mb-8">
+<h2 class="font-headline text-2xl font-bold text-on-surface mb-2">Bem-vindo de volta</h2>
+<p class="text-on-secondary-container text-sm">Insira suas credenciais corporativas.</p>
+</header>
+<form class="space-y-5">
+<!-- Email Field -->
+<div class="space-y-1.5">
+<label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest pl-1" for="email">E-mail Corporativo</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors text-xl" data-icon="mail">mail</span>
+<input class="w-full pl-12 pr-4 py-3.5 bg-surface-container-low rounded-xl border-none text-on-surface placeholder:text-outline/40 text-sm transition-all focus:ring-0" id="email" name="email" placeholder="nome@empresa.com.br" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center pl-1">
+<label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest" for="password">Senha</label>
+<a class="text-[10px] font-bold text-primary hover:underline uppercase tracking-widest" href="#">Esqueceu?</a>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors text-xl" data-icon="lock">lock</span>
+<input class="w-full pl-12 pr-12 py-3.5 bg-surface-container-low rounded-xl border-none text-on-surface placeholder:text-outline/40 text-sm transition-all focus:ring-0" id="password" name="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<!-- Remember Me -->
+<div class="flex items-center pt-2">
+<label class="relative flex items-center cursor-pointer group">
+<input class="peer h-5 w-5 rounded-md border-outline-variant text-primary focus:ring-primary transition-all bg-surface-container-low" type="checkbox"/>
+<span class="ml-3 text-sm font-medium text-on-secondary-fixed-variant group-hover:text-on-surface transition-colors">Lembrar deste dispositivo</span>
+</label>
+</div>
+<!-- Login Button -->
+<button class="w-full primary-gradient-btn text-white font-bold py-4 rounded-xl shadow-lg flex items-center justify-center gap-2 group mt-4" type="submit">
+<span>Entrar no Dashboard</span>
+<span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+<footer class="mt-8 pt-6 border-t border-surface-container text-center">
+<p class="text-sm text-on-secondary-container">
+                        Não possui acesso? 
+                        <a class="text-primary font-bold hover:underline" href="#">Falar com vendas</a>
+</p>
+</footer>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full px-8 py-8 flex flex-col md:flex-row justify-between items-center gap-4 relative z-20">
+<div class="flex items-center gap-4">
+<div class="flex -space-x-2">
+<img alt="Client 1" class="w-6 h-6 rounded-full ring-2 ring-background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEn0upwqrif1nOAG1BU__z2ftNtGXCB6ojc8Mka4MsodqMfusl_M72VkmwMKoEQSaGbJGSryRiOqSDwhuFuo64E35H_Dk1Z2ZaJcyJWtWISbhZx3sMt54O-EB0enpgUToVJVNqfDPujs_2yLYcCJ12jLoxy0cJpJxtd0efGfHoevqMbUhFxSh8-195vyizFVQP_9tlHXxmVgY3qFGFbjRLsgGkq6YSYsx0e2JpKToFV0jXd6JFk4ueW3NvZnX2EUOzVa9Hp6IimLb6"/>
+<img alt="Client 2" class="w-6 h-6 rounded-full ring-2 ring-background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3gNcuC9ow6_bLZno_eKStoDXGenvsaUIyXGaOl0gSCOXh58CRaLZdrUr6PAGx0d_BawG1x4EpNZFftlCzn5q7NhXuklvrMlAoH80XZVaJaH24epVKspRFNRWYvScGMHHHFOafiUSP655igGj0kjYECKVgeS6hl03scVMpzUPQqN4clCA2PlVr_pLv5fRGPtRT19c322gwpB-I9Ahfu_21ed1H1dbYJQ-Iqt47MHcvaat8bxoG9SaL-WJjarpsL77zS49E2shpYD89"/>
+<div class="w-6 h-6 rounded-full bg-primary/20 ring-2 ring-background flex items-center justify-center text-[8px] font-bold text-primary">+500</div>
+</div>
+<span class="text-[10px] font-semibold text-outline-variant/60 uppercase tracking-widest">Confiança Enterprise Global</span>
+</div>
+<div class="flex gap-8 text-[10px] font-medium text-outline-variant/40 uppercase tracking-widest">
+<span>© 2024 AeroMetric</span>
+<span class="hidden sm:inline">Privacidade</span>
+<span class="hidden sm:inline">Termos</span>
+</div>
+</footer>
+</body></html>

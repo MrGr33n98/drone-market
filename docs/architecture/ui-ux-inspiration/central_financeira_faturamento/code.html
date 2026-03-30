@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Central Financeira - Ícaro Enterprise</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-surface": "#2d3133",
+              "on-primary-fixed": "#001a42",
+              "outline-variant": "#c2c6d6",
+              "tertiary-fixed-dim": "#ffb786",
+              "secondary-fixed": "#dae2fd",
+              "primary-container": "#2170e4",
+              "outline": "#727785",
+              "on-secondary": "#ffffff",
+              "on-tertiary-fixed": "#311400",
+              "on-secondary-fixed-variant": "#3f465c",
+              "surface-tint": "#005ac2",
+              "surface-container-lowest": "#ffffff",
+              "on-surface": "#191c1e",
+              "inverse-primary": "#adc6ff",
+              "on-error": "#ffffff",
+              "on-tertiary-container": "#fffbff",
+              "error": "#ba1a1a",
+              "background": "#f7f9fb",
+              "surface-variant": "#e0e3e5",
+              "on-secondary-container": "#5c647a",
+              "tertiary-container": "#b75b00",
+              "primary-fixed": "#d8e2ff",
+              "on-tertiary-fixed-variant": "#723600",
+              "surface-container-high": "#e6e8ea",
+              "surface": "#f7f9fb",
+              "on-tertiary": "#ffffff",
+              "surface-container-highest": "#e0e3e5",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#eff1f3",
+              "surface-dim": "#d8dadc",
+              "secondary-fixed-dim": "#bec6e0",
+              "on-error-container": "#93000a",
+              "primary": "#0058be",
+              "on-surface-variant": "#424754",
+              "error-container": "#ffdad6",
+              "secondary-container": "#dae2fd",
+              "tertiary-fixed": "#ffdcc6",
+              "primary-fixed-dim": "#adc6ff",
+              "surface-bright": "#f7f9fb",
+              "surface-container": "#eceef0",
+              "surface-container-low": "#f2f4f6",
+              "on-background": "#191c1e",
+              "secondary": "#565e74",
+              "on-secondary-fixed": "#131b2e",
+              "on-primary-container": "#fefcff",
+              "tertiary": "#924700",
+              "on-primary-fixed-variant": "#004395"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f7f9fb;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+      }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-[#f7f9fb] dark:bg-slate-900 w-full top-0 z-50">
+<div class="flex items-center justify-between px-8 py-4 max-w-[1920px] mx-auto">
+<div class="flex items-center gap-12">
+<span class="text-xl font-black text-[#191c1e] dark:text-white tracking-tighter font-headline">Ícaro Enterprise</span>
+<nav class="hidden md:flex items-center gap-8 font-manrope font-semibold text-sm tracking-tight">
+<a class="text-[#5c647a] dark:text-slate-400 hover:text-[#191c1e] transition-colors duration-200 ease-in-out" href="#">Dashboards</a>
+<a class="text-[#5c647a] dark:text-slate-400 hover:text-[#191c1e] transition-colors duration-200 ease-in-out" href="#">Operações</a>
+<a class="text-[#5c647a] dark:text-slate-400 hover:text-[#191c1e] transition-colors duration-200 ease-in-out" href="#">Marketplace</a>
+<a class="text-[#0058be] dark:text-blue-400 border-b-2 border-[#0058be] pb-1 transition-colors duration-200 ease-in-out" href="#">Financeiro</a>
+<a class="text-[#5c647a] dark:text-slate-400 hover:text-[#191c1e] transition-colors duration-200 ease-in-out" href="#">Configurações</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-secondary-container text-lg">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-lg text-sm w-64 focus:ring-2 focus:ring-primary/20" placeholder="Buscar faturas..." type="text"/>
+</div>
+<button class="p-2 rounded-full hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="help_outline">help_outline</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden ml-2 border border-outline-variant/30">
+<img alt="Avatar do usuário corporativo" data-alt="close-up portrait of a professional male executive with a confident smile in a corporate studio setting with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuDhillK_MXr1Q6lqWdxQrXf0N6ph19mHMMsdj-e_KFymmnBS34o5N0O5TiVBRli4LbmiiAryShVdU4vV1by2ZkpwsMRwCSaJ-6WgckCBoSEwZBFGBrB02DjkfeNeI5VEPxJuttNY4f820fcRkxE7t8P5RTiXvt3mTAbuL4FrezLxYzLq-3kbjP3GoacXBYAn9wdglOdWIHykWCsCuh5mMwibBxHf6Wkhj-LhPANQtMRz2sVP1jF7yrudm6SS60EvcmBp7LVFpD8WZ"/>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow px-8 py-10 max-w-[1920px] mx-auto w-full">
+<!-- Hero / Page Header -->
+<div class="mb-12">
+<h1 class="font-headline font-extrabold text-4xl tracking-tight text-on-surface mb-2">Central Financeira</h1>
+<p class="text-on-secondary-container font-body">Gerencie seus fluxos de caixa, faturas e liquidações de operações aéreas.</p>
+</div>
+<!-- Financial Summary Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-16">
+<!-- Total Payable -->
+<div class="bg-surface-container-lowest p-6 rounded-xl flex flex-col justify-between min-h-[160px] relative overflow-hidden group">
+<div class="z-10">
+<span class="text-xs font-bold uppercase tracking-wider text-on-secondary-container mb-1 block">Contas a Pagar</span>
+<div class="text-3xl font-headline font-black text-on-surface">R$ 142.380,00</div>
+</div>
+<div class="z-10 flex items-center gap-2 text-sm text-tertiary font-medium">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>12 faturas próximas do vencimento</span>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-8xl" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+</div>
+<!-- Total Paid -->
+<div class="bg-surface-container-lowest p-6 rounded-xl flex flex-col justify-between min-h-[160px] relative overflow-hidden group">
+<div class="z-10">
+<span class="text-xs font-bold uppercase tracking-wider text-on-secondary-container mb-1 block">Total Pago (Mês)</span>
+<div class="text-3xl font-headline font-black text-on-surface">R$ 892.400,15</div>
+</div>
+<div class="z-10 flex items-center gap-2 text-sm text-[#008544] font-medium">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+14% em relação ao mês anterior</span>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-8xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Pending Action -->
+<div class="bg-primary p-6 rounded-xl flex flex-col justify-between min-h-[160px] text-on-primary relative overflow-hidden bg-gradient-to-br from-primary to-primary-container">
+<div class="z-10">
+<span class="text-xs font-bold uppercase tracking-wider text-white/70 mb-1 block">Pendentes de Aprovação</span>
+<div class="text-3xl font-headline font-black">24</div>
+</div>
+<button class="z-10 bg-white/10 hover:bg-white/20 transition-colors py-2 px-4 rounded-lg text-sm font-bold flex items-center justify-center gap-2 backdrop-blur-sm self-start">
+                    Revisar Agora
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Visual Context Card -->
+<div class="hidden lg:block relative rounded-xl overflow-hidden min-h-[160px]">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="modern minimalist office interior with large windows and clean workspace aesthetic, aerial light mood" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSyHBIJ1oDBEbzaGbV_b2V5ed8YRcI7TA2Hmpfz6cilJL-qmkuOXuv6zM-jSEIPFuXl_XfclkLvukpqZSh-uR60VmkrzoybORaJ-5do1bOYbqYByiBfof3e0xeFmH-gN1xj59ARqegy7xp7w2IgCXi_0--PMbOfuFeE5gTK5B8hVYTggFOs7Wud-bobifLHkazPxQhbdZHGgKFfzO20pe2tjFUel6HYkFh5v9WDrGdvQHWuJsPKi8ajflcStBsBdz5wi35zTDRU2Hk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+<span class="text-white text-xs font-medium">Análise de Performance de Custos Q3</span>
+</div>
+</div>
+</div>
+<!-- Section Navigation -->
+<div class="flex items-center gap-8 mb-8 border-b border-surface-container-high pb-4">
+<button class="font-headline font-bold text-on-surface border-b-2 border-primary pb-4 -mb-4 px-2">Faturas e Cobranças</button>
+<button class="font-headline font-medium text-on-secondary-container hover:text-on-surface transition-colors pb-4 -mb-4 px-2">Histórico de Pagamentos</button>
+<button class="font-headline font-medium text-on-secondary-container hover:text-on-surface transition-colors pb-4 -mb-4 px-2">Relatórios Fiscais</button>
+<div class="ml-auto flex items-center gap-3">
+<button class="flex items-center gap-2 text-sm font-semibold text-primary px-4 py-2 hover:bg-primary/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg">filter_list</span>
+                    Filtrar
+                </button>
+<button class="bg-primary text-on-primary px-5 py-2.5 rounded-lg font-bold text-sm flex items-center gap-2 hover:shadow-lg transition-all">
+<span class="material-symbols-outlined text-lg">add</span>
+                    Nova Fatura
+                </button>
+</div>
+</div>
+<!-- Invoices List Table -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="px-6 py-4 text-xs font-bold text-on-secondary-container uppercase tracking-widest font-label">Número</th>
+<th class="px-6 py-4 text-xs font-bold text-on-secondary-container uppercase tracking-widest font-label">Organização</th>
+<th class="px-6 py-4 text-xs font-bold text-on-secondary-container uppercase tracking-widest font-label">Emissão</th>
+<th class="px-6 py-4 text-xs font-bold text-on-secondary-container uppercase tracking-widest font-label text-right">Valor Total</th>
+<th class="px-6 py-4 text-xs font-bold text-on-secondary-container uppercase tracking-widest font-label text-center">Status</th>
+<th class="px-6 py-4 text-xs font-bold text-on-secondary-container uppercase tracking-widest font-label">Vencimento</th>
+<th class="px-6 py-4"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<!-- Invoice 1 -->
+<tr class="hover:bg-surface-container-low transition-colors duration-200 cursor-pointer group">
+<td class="px-6 py-5 font-headline font-bold text-on-surface">#FT-2024-8831</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-secondary-fixed flex items-center justify-center text-primary text-xs font-black">SA</div>
+<span class="text-sm font-semibold text-on-surface">Sky Analytics S.A.</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-on-secondary-container">12 Out, 2024</td>
+<td class="px-6 py-5 text-sm font-black text-on-surface text-right">R$ 14.500,00</td>
+<td class="px-6 py-5 text-center">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-[#dae2fd] text-[#0058be]">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                                PAGO
+                            </span>
+</td>
+<td class="px-6 py-5 text-sm text-on-secondary-container">25 Out, 2024</td>
+<td class="px-6 py-5 text-right">
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity rounded-full hover:bg-surface-variant">
+<span class="material-symbols-outlined text-on-secondary-container">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Invoice 2 -->
+<tr class="hover:bg-surface-container-low transition-colors duration-200 cursor-pointer group">
+<td class="px-6 py-5 font-headline font-bold text-on-surface">#FT-2024-8902</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-highest flex items-center justify-center text-on-surface-variant text-xs font-black">HD</div>
+<span class="text-sm font-semibold text-on-surface">Horizon Drones Ltda.</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-on-secondary-container">18 Out, 2024</td>
+<td class="px-6 py-5 text-sm font-black text-on-surface text-right">R$ 42.120,50</td>
+<td class="px-6 py-5 text-center">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-[#fff3e0] text-[#924700]">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                                PENDENTE
+                            </span>
+</td>
+<td class="px-6 py-5 text-sm font-bold text-tertiary">02 Nov, 2024</td>
+<td class="px-6 py-5 text-right">
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity rounded-full hover:bg-surface-variant">
+<span class="material-symbols-outlined text-on-secondary-container">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Invoice 3 -->
+<tr class="hover:bg-surface-container-low transition-colors duration-200 cursor-pointer group">
+<td class="px-6 py-5 font-headline font-bold text-on-surface">#FT-2024-8712</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-error-container/30 flex items-center justify-center text-error text-xs font-black">AG</div>
+<span class="text-sm font-semibold text-on-surface">AgroVoo Serviços</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-on-secondary-container">05 Set, 2024</td>
+<td class="px-6 py-5 text-sm font-black text-on-surface text-right">R$ 8.900,00</td>
+<td class="px-6 py-5 text-center">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-error-container text-on-error-container">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                                ATRASADO
+                            </span>
+</td>
+<td class="px-6 py-5 text-sm font-bold text-error">20 Set, 2024</td>
+<td class="px-6 py-5 text-right">
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity rounded-full hover:bg-surface-variant">
+<span class="material-symbols-outlined text-on-secondary-container">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Invoice 4 -->
+<tr class="hover:bg-surface-container-low transition-colors duration-200 cursor-pointer group">
+<td class="px-6 py-5 font-headline font-bold text-on-surface">#FT-2024-8995</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-secondary-fixed flex items-center justify-center text-primary text-xs font-black">IC</div>
+<span class="text-sm font-semibold text-on-surface">Ícaro Connect</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-on-secondary-container">20 Out, 2024</td>
+<td class="px-6 py-5 text-sm font-black text-on-surface text-right">R$ 156.000,00</td>
+<td class="px-6 py-5 text-center">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-[#dae2fd] text-[#0058be]">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                                PAGO
+                            </span>
+</td>
+<td class="px-6 py-5 text-sm text-on-secondary-container">05 Nov, 2024</td>
+<td class="px-6 py-5 text-right">
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity rounded-full hover:bg-surface-variant">
+<span class="material-symbols-outlined text-on-secondary-container">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<div class="px-6 py-4 bg-surface-container-lowest border-t border-surface-container-low flex items-center justify-between">
+<span class="text-xs text-on-secondary-container font-medium">Mostrando 1-10 de 142 faturas</span>
+<div class="flex gap-2">
+<button class="p-2 rounded hover:bg-surface-container-low text-on-secondary-container disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-primary text-on-primary font-bold text-xs">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded hover:bg-surface-container-low text-on-surface text-xs font-bold">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded hover:bg-surface-container-low text-on-surface text-xs font-bold">3</button>
+<button class="p-2 rounded hover:bg-surface-container-low text-on-secondary-container">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f7f9fb] dark:bg-slate-950 w-full border-t border-[#f2f4f6] dark:border-slate-800 mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-10 py-6 w-full max-w-[1920px] mx-auto">
+<span class="font-inter text-xs text-[#5c647a] dark:text-slate-500">© 2024 Ícaro Inteligência Aérea. Todos os direitos reservados.</span>
+<div class="flex gap-8 mt-4 md:mt-0">
+<a class="font-inter text-xs text-[#5c647a] hover:text-[#0058be] transition-all cursor-pointer" href="#">Privacidade</a>
+<a class="font-inter text-xs text-[#5c647a] hover:text-[#0058be] transition-all cursor-pointer" href="#">Termos de Uso</a>
+<a class="font-inter text-xs text-[#5c647a] hover:text-[#0058be] transition-all cursor-pointer" href="#">Suporte Local</a>
+<a class="font-inter text-xs text-[#5c647a] hover:text-[#0058be] transition-all cursor-pointer" href="#">Contato</a>
+</div>
+</div>
+</footer>
+</body></html>

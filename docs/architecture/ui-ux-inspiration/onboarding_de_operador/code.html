@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cadastro de Operador | AeroMetric Enterprise</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-tint": "#005ac2",
+              "surface-container-low": "#f2f4f6",
+              "surface-container": "#eceef0",
+              "on-tertiary-fixed-variant": "#723600",
+              "secondary-container": "#dae2fd",
+              "background": "#f7f9fb",
+              "on-surface": "#191c1e",
+              "on-secondary-fixed": "#131b2e",
+              "secondary-fixed": "#dae2fd",
+              "outline": "#727785",
+              "on-error": "#ffffff",
+              "tertiary-fixed-dim": "#ffb786",
+              "surface-dim": "#d8dadc",
+              "on-secondary-fixed-variant": "#3f465c",
+              "tertiary": "#924700",
+              "on-primary-fixed-variant": "#004395",
+              "primary-container": "#2170e4",
+              "outline-variant": "#c2c6d6",
+              "surface-bright": "#f7f9fb",
+              "secondary-fixed-dim": "#bec6e0",
+              "on-primary-fixed": "#001a42",
+              "on-primary": "#ffffff",
+              "surface-container-highest": "#e0e3e5",
+              "primary-fixed": "#d8e2ff",
+              "secondary": "#565e74",
+              "on-tertiary-container": "#fffbff",
+              "on-primary-container": "#fefcff",
+              "error-container": "#ffdad6",
+              "tertiary-fixed": "#ffdcc6",
+              "surface-variant": "#e0e3e5",
+              "tertiary-container": "#b75b00",
+              "primary": "#0058be",
+              "on-surface-variant": "#424754",
+              "inverse-primary": "#adc6ff",
+              "error": "#ba1a1a",
+              "surface-container-high": "#e6e8ea",
+              "on-secondary-container": "#5c647a",
+              "on-background": "#191c1e",
+              "surface": "#f7f9fb",
+              "on-tertiary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "on-error-container": "#93000a",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed": "#311400",
+              "inverse-surface": "#2d3133",
+              "inverse-on-surface": "#eff1f3",
+              "primary-fixed-dim": "#adc6ff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      body { font-family: 'Inter', sans-serif; }
+      .font-headline { font-family: 'Manrope', sans-serif; }
+      .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+      .bg-gradient-primary { background: linear-gradient(135deg, #0058be 0%, #2170e4 100%); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- TopNavBar -->
+<nav class="w-full top-0 z-50 no-border bg-[#f7f9fb] flex justify-between items-center px-8 py-4 max-w-full mx-auto">
+<div class="flex items-center gap-2">
+<span class="text-xl font-bold text-[#191c1e] dark:text-white font-headline">AeroMetric Enterprise</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#5c647a] hover:text-[#191c1e] transition-colors font-['Manrope'] font-semibold tracking-tight" href="#">Dashboard</a>
+<a class="text-[#5c647a] hover:text-[#191c1e] transition-colors font-['Manrope'] font-semibold tracking-tight" href="#">Fleet</a>
+<a class="text-[#5c647a] hover:text-[#191c1e] transition-colors font-['Manrope'] font-semibold tracking-tight" href="#">Analytics</a>
+<a class="text-[#5c647a] hover:text-[#191c1e] transition-colors font-['Manrope'] font-semibold tracking-tight" href="#">Reports</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-secondary-container hover:bg-blue-50/50 p-2 rounded-full transition-all" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-on-secondary-container hover:bg-blue-50/50 p-2 rounded-full transition-all" data-icon="settings">settings</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User profile avatar" data-alt="Professional avatar of a drone pilot wearing a headset and corporate gear" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzp1ksbGChB-t--HBhdNDMQhVE2l-fp6S189n3da7ioLxNaaXY2DVOc_674dMxWusB51WgClPxNng2gvVkbTJKORUeDlPUD2yjorRhNBHenAUJRap_viNz0Ugp_AVMUSC11-dMEIFuy4a0xwMF7JdWmKXsf4bAqtHDmF-rPO1jlVB5UGHCalM1wa9O3BL-NbXBh2bdvCtO4-CdshBNAKYso3MvKqvMdfDjI_o8vjkgJKT_y4FwKjbLRvlfb8XFgBZGxT5vtf9hFDHY"/>
+</div>
+</div>
+</nav>
+<main class="max-w-6xl mx-auto px-6 py-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Left Sidebar: Progress & Context -->
+<div class="lg:col-span-4 space-y-10">
+<div class="space-y-4">
+<h1 class="text-4xl font-extrabold font-headline tracking-tight text-on-surface">Cadastro de Operador</h1>
+<p class="text-on-secondary-container text-lg leading-relaxed">Complete seu perfil para começar a receber missões de coleta de dados em nossa malha aérea enterprise.</p>
+</div>
+<div class="space-y-8 relative">
+<!-- Progress Line -->
+<div class="absolute left-4 top-2 bottom-2 w-0.5 bg-surface-container-high -z-10"></div>
+<!-- Step 1 (Active) -->
+<div class="flex items-center gap-6 group">
+<div class="w-9 h-9 rounded-full bg-gradient-primary flex items-center justify-center text-white shadow-lg ring-4 ring-primary/10">
+<span class="text-sm font-bold">1</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline font-bold text-primary">Perfil do Operador</span>
+<span class="text-xs text-on-secondary-container font-medium">BIO, CONTATO E LOCALIZAÇÃO</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex items-center gap-6 group">
+<div class="w-9 h-9 rounded-full bg-surface-container-highest flex items-center justify-center text-on-secondary-container border border-outline-variant/20">
+<span class="text-sm font-bold">2</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline font-bold text-on-secondary-container">Áreas de Atuação</span>
+<span class="text-xs text-on-secondary-container/60 font-medium">ESPECIALIDADES TÉCNICAS</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex items-center gap-6 group">
+<div class="w-9 h-9 rounded-full bg-surface-container-highest flex items-center justify-center text-on-secondary-container border border-outline-variant/20">
+<span class="text-sm font-bold">3</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline font-bold text-on-secondary-container">Dados Bancários</span>
+<span class="text-xs text-on-secondary-container/60 font-medium">LOGÍSTICA DE PAGAMENTOS</span>
+</div>
+</div>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl space-y-4">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-headline font-bold">Ambiente Seguro</span>
+</div>
+<p class="text-sm text-on-secondary-container">Seus dados são protegidos por criptografia de ponta a ponta e seguem rigorosamente a LGPD.</p>
+</div>
+</div>
+<!-- Right Content: Form Canvas -->
+<div class="lg:col-span-8">
+<div class="bg-surface-container-lowest rounded-xl p-8 lg:p-12 shadow-sm border border-outline-variant/10">
+<!-- Form Step 1: Profile Details -->
+<form class="space-y-8">
+<div class="space-y-2">
+<h2 class="text-2xl font-bold font-headline text-on-surface">Detalhes do Perfil</h2>
+<p class="text-on-secondary-container">Conte-nos sobre sua experiência e como podemos contatá-lo.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Bio -->
+<div class="md:col-span-2 space-y-2">
+<label class="block text-sm font-bold font-headline text-on-surface" for="bio">Biografia Profissional</label>
+<textarea class="w-full bg-surface-container-highest border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface" id="bio" placeholder="Descreva sua experiência com drones, certificações ANAC e tipos de missões realizadas..." rows="4"></textarea>
+</div>
+<!-- Phone -->
+<div class="space-y-2">
+<label class="block text-sm font-bold font-headline text-on-surface" for="phone">Telefone (WhatsApp)</label>
+<input class="w-full bg-surface-container-highest border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface" id="phone" placeholder="(00) 00000-0000" type="tel"/>
+</div>
+<!-- Empty space or other field -->
+<div class="space-y-2">
+<label class="block text-sm font-bold font-headline text-on-surface" for="email">E-mail Corporativo</label>
+<input class="w-full bg-surface-container-highest border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface" id="email" placeholder="exemplo@aerometric.com" type="email"/>
+</div>
+<!-- City -->
+<div class="space-y-2">
+<label class="block text-sm font-bold font-headline text-on-surface" for="city">Cidade Base</label>
+<input class="w-full bg-surface-container-highest border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface" id="city" placeholder="Ex: São Paulo" type="text"/>
+</div>
+<!-- State -->
+<div class="space-y-2">
+<label class="block text-sm font-bold font-headline text-on-surface" for="state">Estado (UF)</label>
+<select class="w-full bg-surface-container-highest border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface appearance-none" id="state">
+<option value="">Selecione o Estado</option>
+<option value="SP">São Paulo</option>
+<option value="RJ">Rio de Janeiro</option>
+<option value="MG">Minas Gerais</option>
+<option value="PR">Paraná</option>
+<option value="SC">Santa Catarina</option>
+</select>
+</div>
+</div>
+<!-- Service Areas Preview (Quick Selection) -->
+<div class="pt-6 border-t border-surface-container-high space-y-4">
+<h3 class="text-lg font-bold font-headline text-on-surface">Principais Especialidades</h3>
+<div class="flex flex-wrap gap-3">
+<button class="px-4 py-2 bg-secondary-container text-on-secondary-container rounded-full text-sm font-medium hover:bg-primary-container hover:text-white transition-all flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="agriculture">agriculture</span>
+                                    Agronegócio
+                                </button>
+<button class="px-4 py-2 bg-secondary-container text-on-secondary-container rounded-full text-sm font-medium hover:bg-primary-container hover:text-white transition-all flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="construction">construction</span>
+                                    Construção Civil
+                                </button>
+<button class="px-4 py-2 bg-secondary-container text-on-secondary-container rounded-full text-sm font-medium hover:bg-primary-container hover:text-white transition-all flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="solar_power">solar_power</span>
+                                    Inspeção Solar
+                                </button>
+<button class="px-4 py-2 bg-secondary-container text-on-secondary-container rounded-full text-sm font-medium hover:bg-primary-container hover:text-white transition-all flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="landscape">landscape</span>
+                                    Topografia
+                                </button>
+</div>
+</div>
+<!-- Navigation Footer -->
+<div class="pt-8 flex justify-end gap-4">
+<button class="px-8 py-3 text-primary font-bold font-headline hover:bg-primary/5 rounded-lg transition-all" type="button">Cancelar</button>
+<button class="px-10 py-3 bg-gradient-primary text-white font-bold font-headline rounded-lg shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all flex items-center gap-2" type="button">
+                                Próximo Passo
+                                <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Bento Info Cards -->
+<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-6 rounded-xl flex items-start gap-4">
+<div class="p-3 bg-white rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-primary" data-icon="wallet">wallet</span>
+</div>
+<div class="space-y-1">
+<h4 class="font-headline font-bold text-on-surface">Pagamentos Semanais</h4>
+<p class="text-xs text-on-secondary-container leading-relaxed">Operadores AeroMetric recebem seus repasses todas as terças-feiras diretamente na conta cadastrada.</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl flex items-start gap-4">
+<div class="p-3 bg-white rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-primary" data-icon="shield_moon">shield_moon</span>
+</div>
+<div class="space-y-1">
+<h4 class="font-headline font-bold text-on-surface">Seguro de Voo</h4>
+<p class="text-xs text-on-secondary-container leading-relaxed">Todas as missões enterprise possuem cobertura automática de responsabilidade civil pela nossa apólice master.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- SideNavBar (Mobile / Floating Anchor) -->
+<div class="md:hidden fixed bottom-6 left-6 right-6 bg-white shadow-2xl rounded-full px-6 py-4 flex justify-between items-center z-50 border border-outline-variant/20">
+<button class="material-symbols-outlined text-primary" data-icon="dashboard">dashboard</button>
+<button class="material-symbols-outlined text-on-secondary-container" data-icon="flight_takeoff">flight_takeoff</button>
+<button class="material-symbols-outlined text-on-secondary-container" data-icon="map">map</button>
+<button class="material-symbols-outlined text-on-secondary-container" data-icon="database">database</button>
+<button class="material-symbols-outlined text-on-secondary-container" data-icon="help_outline">help_outline</button>
+</div>
+</body></html>

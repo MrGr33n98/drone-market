@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ícaro Enterprise - Dashboard Administrativo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-surface": "#2d3133",
+              "on-primary-fixed": "#001a42",
+              "outline-variant": "#c2c6d6",
+              "tertiary-fixed-dim": "#ffb786",
+              "secondary-fixed": "#dae2fd",
+              "primary-container": "#2170e4",
+              "outline": "#727785",
+              "on-secondary": "#ffffff",
+              "on-tertiary-fixed": "#311400",
+              "on-secondary-fixed-variant": "#3f465c",
+              "surface-tint": "#005ac2",
+              "surface-container-lowest": "#ffffff",
+              "on-surface": "#191c1e",
+              "inverse-primary": "#adc6ff",
+              "on-error": "#ffffff",
+              "on-tertiary-container": "#fffbff",
+              "error": "#ba1a1a",
+              "background": "#f7f9fb",
+              "surface-variant": "#e0e3e5",
+              "on-secondary-container": "#5c647a",
+              "tertiary-container": "#b75b00",
+              "primary-fixed": "#d8e2ff",
+              "on-tertiary-fixed-variant": "#723600",
+              "surface-container-high": "#e6e8ea",
+              "surface": "#f7f9fb",
+              "on-tertiary": "#ffffff",
+              "surface-container-highest": "#e0e3e5",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#eff1f3",
+              "surface-dim": "#d8dadc",
+              "secondary-fixed-dim": "#bec6e0",
+              "on-error-container": "#93000a",
+              "primary": "#0058be",
+              "on-surface-variant": "#424754",
+              "error-container": "#ffdad6",
+              "secondary-container": "#dae2fd",
+              "tertiary-fixed": "#ffdcc6",
+              "primary-fixed-dim": "#adc6ff",
+              "surface-bright": "#f7f9fb",
+              "surface-container": "#eceef0",
+              "surface-container-low": "#f2f4f6",
+              "on-background": "#191c1e",
+              "secondary": "#565e74",
+              "on-secondary-fixed": "#131b2e",
+              "on-primary-container": "#fefcff",
+              "tertiary": "#924700",
+              "on-primary-fixed-variant": "#004395"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-panel {
+        background: rgba(247, 249, 251, 0.8);
+        backdrop-filter: blur(12px);
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      h1, h2, h3, .font-headline {
+        font-family: 'Manrope', sans-serif;
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col selection:bg-primary-fixed selection:text-on-primary-fixed">
+<nav class="w-full top-0 z-50 bg-[#f7f9fb] dark:bg-slate-900 shadow-none">
+<div class="flex items-center justify-between px-8 py-4 max-w-[1920px] mx-auto">
+<div class="flex items-center gap-12">
+<span class="text-xl font-black text-[#191c1e] dark:text-white tracking-tighter">Ícaro Enterprise</span>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-manrope font-semibold text-sm tracking-tight text-[#0058be] dark:text-blue-400 border-b-2 border-[#0058be] pb-1" href="#">Dashboards</a>
+<a class="font-manrope font-semibold text-sm tracking-tight text-[#5c647a] dark:text-slate-400 hover:text-[#191c1e] transition-colors duration-200 ease-in-out" href="#">Operações</a>
+<a class="font-manrope font-semibold text-sm tracking-tight text-[#5c647a] dark:text-slate-400 hover:text-[#191c1e] transition-colors duration-200 ease-in-out" href="#">Marketplace</a>
+<a class="font-manrope font-semibold text-sm tracking-tight text-[#5c647a] dark:text-slate-400 hover:text-[#191c1e] transition-colors duration-200 ease-in-out" href="#">Financeiro</a>
+<a class="font-manrope font-semibold text-sm tracking-tight text-[#5c647a] dark:text-slate-400 hover:text-[#191c1e] transition-colors duration-200 ease-in-out" href="#">Configurações</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-sm">search</span>
+<input class="bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-2 text-sm w-64 focus:ring-2 focus:ring-primary/20" placeholder="Buscar missões ou ativos..." type="text"/>
+</div>
+<button class="p-2 rounded-full hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">help_outline</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary-fixed flex items-center justify-center ml-2 ring-2 ring-surface-container-high">
+<img alt="Avatar do usuário corporativo" class="h-full w-full object-cover rounded-full" data-alt="Professional headshot of a business executive with a friendly expression in a modern office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLJbuJEBpEnVGrGfKXO1YN35tESMlafnC5uaDYMmvLll4DYqqf2vEU2zRV2V05cl0R_KVX_0-_dne5KU833ew3mYW52O1k6f61ibYUlr-SBa_GswAAXTdH9OhaCjo8NS0xa7pz9KKYJtVOYi8t0_ymm0M2FRsr_hgienCt34uX6CEERHbNGx4vp3CdB4xbDFZJQc6igx_gUmjlaN0IcPWOnv1Tv92XZyxdpDQnn3c1ZU0vx6ciK3qpv5CJO8nfKRosDJA3mU7bX4UO"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="flex-grow px-8 py-10 max-w-[1920px] mx-auto w-full">
+<header class="mb-12">
+<h1 class="text-4xl font-extrabold text-on-surface tracking-tight mb-2">Visão Geral da Operação</h1>
+<p class="text-on-secondary-container font-medium">Monitoramento em tempo real da frota e processamento de dados.</p>
+</header>
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-none">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary bg-primary-fixed/30 p-2 rounded-lg">assignment</span>
+<span class="text-xs font-bold text-primary tracking-widest uppercase">Ordens de Serviço</span>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<span class="text-sm font-medium text-on-secondary-container">Draft</span>
+<span class="text-sm font-bold text-on-surface">12</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm font-medium text-on-secondary-container">Pending</span>
+<span class="text-sm font-bold text-on-surface">08</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm font-medium text-on-secondary-container">Active</span>
+<span class="text-sm font-bold text-primary">24</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm font-medium text-on-secondary-container">Completed</span>
+<span class="text-sm font-bold text-on-surface">142</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-none flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-tertiary bg-tertiary-fixed/30 p-2 rounded-lg" data-weight="fill">rocket_launch</span>
+<span class="text-xs font-bold text-tertiary tracking-widest uppercase">Missões Ativas</span>
+</div>
+<div class="mt-2">
+<h3 class="text-4xl font-black text-on-surface">18</h3>
+<p class="text-sm font-medium text-on-secondary-container mt-1">Operando no território nacional</p>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/10">
+<div class="flex -space-x-2">
+<div class="h-6 w-6 rounded-full bg-slate-200 ring-2 ring-white"></div>
+<div class="h-6 w-6 rounded-full bg-slate-300 ring-2 ring-white"></div>
+<div class="h-6 w-6 rounded-full bg-slate-400 ring-2 ring-white"></div>
+<div class="h-6 w-6 rounded-full bg-primary text-[10px] text-white flex items-center justify-center ring-2 ring-white font-bold">+15</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-none">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary bg-secondary-fixed p-2 rounded-lg">database</span>
+<span class="text-xs font-bold text-on-secondary-fixed-variant tracking-widest uppercase">Volume de Dados</span>
+</div>
+<div class="mt-2">
+<h3 class="text-4xl font-black text-on-surface">4.2 <span class="text-xl font-bold text-on-secondary-container">TB</span></h3>
+<div class="mt-4 h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[72%] rounded-full"></div>
+</div>
+<p class="text-xs font-medium text-on-secondary-container mt-3">72% da cota mensal utilizada</p>
+</div>
+</div>
+<div class="bg-primary bg-gradient-to-br from-primary to-primary-container p-6 rounded-xl shadow-none text-white">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined bg-white/20 p-2 rounded-lg">payments</span>
+<span class="text-xs font-bold text-white/80 tracking-widest uppercase">Faturamento Mensal</span>
+</div>
+<div class="mt-2">
+<p class="text-xs font-medium text-white/70 mb-1">Total Acumulado (Mês)</p>
+<h3 class="text-3xl font-black">R$ 142.850,00</h3>
+<div class="mt-6 flex items-center gap-2 bg-white/10 w-fit px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span class="text-xs font-bold">+12.4% vs anterior</span>
+</div>
+</div>
+</div>
+</section>
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2 space-y-8">
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-none">
+<div class="px-8 py-6 flex justify-between items-center border-b border-surface-container-high">
+<h2 class="text-xl font-bold text-on-surface">Missões Recentes</h2>
+<button class="text-sm font-bold text-primary hover:underline transition-all">Ver todas</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-8 py-4 text-xs font-bold text-on-secondary-container uppercase tracking-wider">Código</th>
+<th class="px-8 py-4 text-xs font-bold text-on-secondary-container uppercase tracking-wider">Missão</th>
+<th class="px-8 py-4 text-xs font-bold text-on-secondary-container uppercase tracking-wider">Localização</th>
+<th class="px-8 py-4 text-xs font-bold text-on-secondary-container uppercase tracking-wider">Status</th>
+<th class="px-8 py-4 text-xs font-bold text-on-secondary-container uppercase tracking-wider">Ações</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high">
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="px-8 py-4 font-mono text-sm text-on-secondary-container">#DRN-2024-001</td>
+<td class="px-8 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-on-surface">Inspeção Agrícola</span>
+<span class="text-xs text-on-secondary-container">Mapeamento Multiespectral</span>
+</div>
+</td>
+<td class="px-8 py-4 text-sm text-on-surface">Sorriso, MT</td>
+<td class="px-8 py-4">
+<span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-green-100 text-green-700">Concluída</span>
+</td>
+<td class="px-8 py-4">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">more_horiz</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="px-8 py-4 font-mono text-sm text-on-secondary-container">#DRN-2024-042</td>
+<td class="px-8 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-on-surface">Monitoramento Ambiental</span>
+<span class="text-xs text-on-secondary-container">Detecção de Desmatamento</span>
+</div>
+</td>
+<td class="px-8 py-4 text-sm text-on-surface">Altamira, PA</td>
+<td class="px-8 py-4">
+<span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-100 text-blue-700">Em Voo</span>
+</td>
+<td class="px-8 py-4">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">more_horiz</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="px-8 py-4 font-mono text-sm text-on-secondary-container">#DRN-2024-089</td>
+<td class="px-8 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-on-surface">Topografia de Obras</span>
+<span class="text-xs text-on-secondary-container">Modelagem 3D / Fotogrametria</span>
+</div>
+</td>
+<td class="px-8 py-4 text-sm text-on-surface">Curitiba, PR</td>
+<td class="px-8 py-4">
+<span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-100 text-amber-700">Pendente</span>
+</td>
+<td class="px-8 py-4">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">more_horiz</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="space-y-8">
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-none">
+<h2 class="text-lg font-bold text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">public</span> Distribuição Geográfica
+                    </h2>
+<div class="relative w-full aspect-square rounded-lg overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover opacity-80" data-alt="Stylized map of Brazil with glowing blue data points indicating drone activity across various states" data-location="Brazil" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1NxTgu5I1VR6tG2DfZA4QiRIGd2izw1Y2y1iGswzzPaOQHQ_U78TJoZfLDf0dcfCJ1vQuYBb404Pq-9G2qAohaDTPi7yLtuAF5mGLOMkXW_vcu6O2Mp4QriPmSoGk2nFS0wKdBGI_EOordPaEuj-KhlcT9ehnyucpZI6t8hEFmsHJ1LUx-2O5xhQ7TQa-yq4c7URCc-l64N16n8K-SVW-ye84lXhQbiKsmD8sKX-UubItVhTx58TEtx91CVKf_FQ4DougPIn4bpV0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 to-transparent flex items-end p-4">
+<div class="w-full">
+<div class="flex justify-between items-center mb-1">
+<span class="text-xs font-bold text-on-surface">Sudeste</span>
+<span class="text-xs font-bold text-primary">45%</span>
+</div>
+<div class="h-1 bg-surface-container-high rounded-full overflow-hidden mb-3">
+<div class="h-full bg-primary w-[45%]"></div>
+</div>
+<div class="flex justify-between items-center mb-1">
+<span class="text-xs font-bold text-on-surface">Norte</span>
+<span class="text-xs font-bold text-primary">22%</span>
+</div>
+<div class="h-1 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[22%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-none">
+<h2 class="text-lg font-bold text-on-surface mb-4">Saúde do Sistema</h2>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-3 rounded-lg bg-surface-container-low/50">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+<div>
+<p class="text-sm font-bold text-on-surface">Gateway Satelital</p>
+<p class="text-[10px] text-on-secondary-container">Latência 45ms - Excelente</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-3 rounded-lg bg-surface-container-low/50">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+<div>
+<p class="text-sm font-bold text-on-surface">Processamento de Imagem</p>
+<p class="text-[10px] text-on-secondary-container">Operando em 88% da capacidade</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-3 rounded-lg bg-surface-container-low/50">
+<span class="material-symbols-outlined text-amber-500">error</span>
+<div>
+<p class="text-sm font-bold text-on-surface">Unidade de Joinville</p>
+<p class="text-[10px] text-on-secondary-container">Manutenção preventiva requerida</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="w-full border-t border-[#f2f4f6] dark:border-slate-800 bg-[#f7f9fb] dark:bg-slate-950 mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-10 py-6 w-full">
+<span class="font-inter text-xs text-[#5c647a] dark:text-slate-500">© 2024 Ícaro Inteligência Aérea. Todos os direitos reservados.</span>
+<div class="flex items-center gap-6 mt-4 md:mt-0">
+<a class="font-inter text-xs text-[#5c647a] hover:text-[#0058be] transition-all hover:underline cursor-pointer" href="#">Privacidade</a>
+<a class="font-inter text-xs text-[#5c647a] hover:text-[#0058be] transition-all hover:underline cursor-pointer" href="#">Termos de Uso</a>
+<a class="font-inter text-xs text-[#5c647a] hover:text-[#0058be] transition-all hover:underline cursor-pointer" href="#">Suporte Local</a>
+<a class="font-inter text-xs text-[#5c647a] hover:text-[#0058be] transition-all hover:underline cursor-pointer" href="#">Contato</a>
+</div>
+</div>
+</footer>
+</body></html>
